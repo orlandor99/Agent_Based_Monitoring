@@ -12,6 +12,11 @@ pipeline{
         }
         stage("Docker Build"){
             steps{
+                sh '''
+                    pwd
+                    ls -la
+                    find . -maxdepth 2 -type f
+                '''
                 script{
                     dockerImage = docker.build("orlandor99/monitoring-server:latest", "-f docker/Dockerfile .")
                 }
