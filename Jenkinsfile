@@ -23,6 +23,7 @@ pipeline{
                 sh '''
                 echo $DOCKER_CREDS_PSW | docker login -u $DOCKER_CREDS_USR --password-stdin
                 docker push orlandor99/monitoring-server:latest
+                '''
             }
         }
     }
