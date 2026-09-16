@@ -3,6 +3,7 @@ pipeline{
     environment{
         GIT_REPO = "https://github.com/orlandor99/Agent_Based_Monitoring"
         BRANCH = "main"
+        DOCKER_CREDS = credentials('dockerhub-credentials')
     }
     stages{
         stage("Checkout"){
@@ -12,22 +13,16 @@ pipeline{
         }
         stage("Docker Build"){
             steps{
-                sh '''
-                    pwd
-                    ls -la
-                    find . -maxdepth 2 -type f
-                '''
                 script{
-                    dockerImage = docker.build("orlandor99/monitoring-server:latest", "-f docker/Dockerfile .")
+                    def dockerImage = docker.build("orlandor99/monitoring-server:latest", "-f docker/Dockerfile .")
                 }
             }
         }
         stage("Docker Push"){
             steps{
-                script{
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials')
-                        dockerImage.push()
-                }
+                sh '''
+                echo $DOCKER_CREDS_PSW | docker login -u $DOCKER_CREDS_USR --password-stdin
+                docker push orlandor99/monitoring-server:latest
             }
         }
     }
