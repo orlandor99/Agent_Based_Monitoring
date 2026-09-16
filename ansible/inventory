@@ -1,0 +1,6 @@
+[agents]
+agent-1 ansible_host=192.168.56.102 ansible_user=vm1
+agent-2 ansible_host=192.168.56.103 ansible_user=vm2
+
+[monitoring]
+central-server ansible_host=192.168.56.101 ansible_user=monitor

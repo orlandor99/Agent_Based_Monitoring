@@ -1,0 +1,14 @@
+[Unit]
+Description={{ app_description }}
+After=network.target
+
+[Service]
+Type=simple
+User={{ ansible_user }}
+WorkingDirectory={{ app_dir }}
+ExecStart={{ python_executable }} {{ app_dir }}/{{ script_name }}
+Restart=always
+RestartSec=5
+Environment=MONITORING_SERVER_URL={{ monitoring_server_url }}
+[Install]
+WantedBy=multi-user.target

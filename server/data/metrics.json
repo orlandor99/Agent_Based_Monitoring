@@ -1,0 +1,1802 @@
+[
+    {
+        "hostname": "agent-2",
+        "cpu": 4.8,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102266368,
+            "used": 776851456,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471757824,
+            "used": 12889579520,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:10"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1005383680,
+            "used": 854220800,
+            "percent": 51.3
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924264448,
+            "used": 14437072896,
+            "percent": 74.6
+        },
+        "processes": 235,
+        "timestamp": "2026-09-14 11:25:19"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102282752,
+            "used": 776851456,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471757824,
+            "used": 12889579520,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:17"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102282752,
+            "used": 776843264,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471757824,
+            "used": 12889579520,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:19"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102282752,
+            "used": 776843264,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471757824,
+            "used": 12889579520,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:19"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016246272,
+            "used": 843395072,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924313600,
+            "used": 14437023744,
+            "percent": 74.6
+        },
+        "processes": 232,
+        "timestamp": "2026-09-14 11:25:25"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102290944,
+            "used": 776843264,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471757824,
+            "used": 12889579520,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:23"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776830976,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:25"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 4.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776830976,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:25"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016246272,
+            "used": 843423744,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924313600,
+            "used": 14437023744,
+            "percent": 74.6
+        },
+        "processes": 232,
+        "timestamp": "2026-09-14 11:25:31"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776830976,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:29"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776822784,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:31"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776822784,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:31"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016246272,
+            "used": 843415552,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924313600,
+            "used": 14437023744,
+            "percent": 74.6
+        },
+        "processes": 232,
+        "timestamp": "2026-09-14 11:25:37"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776814592,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:35"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776814592,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:37"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776814592,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:37"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016246272,
+            "used": 843415552,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924313600,
+            "used": 14437023744,
+            "percent": 74.6
+        },
+        "processes": 232,
+        "timestamp": "2026-09-14 11:25:43"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102303232,
+            "used": 776806400,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:41"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102327808,
+            "used": 776806400,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:43"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102327808,
+            "used": 776806400,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:44"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 12.6,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016369152,
+            "used": 843321344,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924329984,
+            "used": 14437007360,
+            "percent": 74.6
+        },
+        "processes": 231,
+        "timestamp": "2026-09-14 11:25:50"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102327808,
+            "used": 776798208,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:47"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102336000,
+            "used": 776790016,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:49"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 5.6,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102336000,
+            "used": 776790016,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:50"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016369152,
+            "used": 843313152,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924329984,
+            "used": 14437007360,
+            "percent": 74.6
+        },
+        "processes": 231,
+        "timestamp": "2026-09-14 11:25:56"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102336000,
+            "used": 776790016,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:53"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102336000,
+            "used": 776781824,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:56"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 4.5,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102336000,
+            "used": 776781824,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:56"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1016381440,
+            "used": 843313152,
+            "percent": 50.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924329984,
+            "used": 14437007360,
+            "percent": 74.6
+        },
+        "processes": 231,
+        "timestamp": "2026-09-14 11:26:02"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102352384,
+            "used": 776773632,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:25:59"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102360576,
+            "used": 776773632,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:02"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102360576,
+            "used": 776773632,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:02"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1011142656,
+            "used": 848535552,
+            "percent": 51.0
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924313600,
+            "used": 14437023744,
+            "percent": 74.6
+        },
+        "processes": 233,
+        "timestamp": "2026-09-14 11:26:08"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102360576,
+            "used": 776773632,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:06"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102360576,
+            "used": 776765440,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:08"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102360576,
+            "used": 776765440,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:08"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 937029632,
+            "used": 911323136,
+            "percent": 54.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4924276736,
+            "used": 14437060608,
+            "percent": 74.6
+        },
+        "processes": 235,
+        "timestamp": "2026-09-14 11:26:14"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102368768,
+            "used": 776765440,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:12"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102368768,
+            "used": 776765440,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:14"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102368768,
+            "used": 776765440,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:14"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102376960,
+            "used": 776757248,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:18"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102376960,
+            "used": 776749056,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:20"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102376960,
+            "used": 776749056,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:20"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102385152,
+            "used": 776749056,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:24"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102385152,
+            "used": 776740864,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:26"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 4.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1102385152,
+            "used": 776740864,
+            "percent": 46.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471753728,
+            "used": 12889583616,
+            "percent": 66.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:26:26"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 10.7,
+        "memory": {
+            "total": 2064093184,
+            "available": 1103785984,
+            "used": 775331840,
+            "percent": 46.5
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471737344,
+            "used": 12889600000,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:30"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1103941632,
+            "used": 775176192,
+            "percent": 46.5
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471737344,
+            "used": 12889600000,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:32"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1103941632,
+            "used": 775176192,
+            "percent": 46.5
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471737344,
+            "used": 12889600000,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:32"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 67.7,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060339712,
+            "used": 808243200,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471700480,
+            "used": 12889636864,
+            "percent": 66.6
+        },
+        "processes": 199,
+        "timestamp": "2026-09-14 11:26:36"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060339712,
+            "used": 808243200,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471700480,
+            "used": 12889636864,
+            "percent": 66.6
+        },
+        "processes": 199,
+        "timestamp": "2026-09-14 11:26:38"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060339712,
+            "used": 808243200,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471700480,
+            "used": 12889636864,
+            "percent": 66.6
+        },
+        "processes": 199,
+        "timestamp": "2026-09-14 11:26:38"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060429824,
+            "used": 808153088,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471700480,
+            "used": 12889636864,
+            "percent": 66.6
+        },
+        "processes": 199,
+        "timestamp": "2026-09-14 11:26:42"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060429824,
+            "used": 808153088,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471700480,
+            "used": 12889636864,
+            "percent": 66.6
+        },
+        "processes": 199,
+        "timestamp": "2026-09-14 11:26:44"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 4.8,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061060608,
+            "used": 807567360,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 198,
+        "timestamp": "2026-09-14 11:26:44"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061052416,
+            "used": 812265472,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:48"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061060608,
+            "used": 812257280,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:50"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 5.4,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061060608,
+            "used": 812257280,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:50"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061060608,
+            "used": 812257280,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:54"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061068800,
+            "used": 812249088,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:56"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061068800,
+            "used": 812249088,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471733248,
+            "used": 12889604096,
+            "percent": 66.6
+        },
+        "processes": 197,
+        "timestamp": "2026-09-14 11:26:57"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1061138432,
+            "used": 812179456,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:00"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060904960,
+            "used": 812429312,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:02"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060909056,
+            "used": 812425216,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:03"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060921344,
+            "used": 812412928,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:06"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060921344,
+            "used": 812412928,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:08"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060921344,
+            "used": 812412928,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:09"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060929536,
+            "used": 812404736,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:12"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060929536,
+            "used": 812404736,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:14"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1060937728,
+            "used": 812396544,
+            "percent": 48.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471749632,
+            "used": 12889587712,
+            "percent": 66.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:27:15"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1071853568,
+            "used": 801292288,
+            "percent": 48.1
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471290880,
+            "used": 12890046464,
+            "percent": 66.6
+        },
+        "processes": 193,
+        "timestamp": "2026-09-14 11:27:18"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.4,
+        "memory": {
+            "total": 2064093184,
+            "available": 1091788800,
+            "used": 781373440,
+            "percent": 47.1
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471536640,
+            "used": 12889800704,
+            "percent": 66.6
+        },
+        "processes": 191,
+        "timestamp": "2026-09-14 11:27:20"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1091788800,
+            "used": 781438976,
+            "percent": 47.1
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471536640,
+            "used": 12889800704,
+            "percent": 66.6
+        },
+        "processes": 191,
+        "timestamp": "2026-09-14 11:27:24"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1091796992,
+            "used": 781430784,
+            "percent": 47.1
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471536640,
+            "used": 12889800704,
+            "percent": 66.6
+        },
+        "processes": 191,
+        "timestamp": "2026-09-14 11:27:27"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1091796992,
+            "used": 781316096,
+            "percent": 47.1
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6471532544,
+            "used": 12889804800,
+            "percent": 66.6
+        },
+        "processes": 191,
+        "timestamp": "2026-09-14 11:27:30"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1140252672,
+            "used": 732999680,
+            "percent": 44.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6470402048,
+            "used": 12890935296,
+            "percent": 66.6
+        },
+        "processes": 186,
+        "timestamp": "2026-09-14 11:27:36"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 100.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1666039808,
+            "used": 254357504,
+            "percent": 19.3
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4932214784,
+            "used": 14429122560,
+            "percent": 74.5
+        },
+        "processes": 131,
+        "timestamp": "2026-09-12 02:48:10"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1140260864,
+            "used": 732987392,
+            "percent": 44.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6470402048,
+            "used": 12890935296,
+            "percent": 66.6
+        },
+        "processes": 186,
+        "timestamp": "2026-09-14 11:27:42"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 81.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1573240832,
+            "used": 340836352,
+            "percent": 23.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4932059136,
+            "used": 14429278208,
+            "percent": 74.5
+        },
+        "processes": 146,
+        "timestamp": "2026-09-14 11:27:45"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1140436992,
+            "used": 732811264,
+            "percent": 44.7
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6470402048,
+            "used": 12890935296,
+            "percent": 66.6
+        },
+        "processes": 186,
+        "timestamp": "2026-09-14 11:27:48"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 2.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1432772608,
+            "used": 467902464,
+            "percent": 30.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4931960832,
+            "used": 14429376512,
+            "percent": 74.5
+        },
+        "processes": 160,
+        "timestamp": "2026-09-14 11:27:51"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1140625408,
+            "used": 732622848,
+            "percent": 44.7
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6470402048,
+            "used": 12890935296,
+            "percent": 66.6
+        },
+        "processes": 186,
+        "timestamp": "2026-09-14 11:27:54"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1433071616,
+            "used": 467587072,
+            "percent": 30.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4931960832,
+            "used": 14429376512,
+            "percent": 74.5
+        },
+        "processes": 160,
+        "timestamp": "2026-09-14 11:27:59"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 2.4,
+        "memory": {
+            "total": 2064093184,
+            "available": 1140629504,
+            "used": 732618752,
+            "percent": 44.7
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6470402048,
+            "used": 12890935296,
+            "percent": 66.6
+        },
+        "processes": 186,
+        "timestamp": "2026-09-14 11:28:01"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 3.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1433079808,
+            "used": 467578880,
+            "percent": 30.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4931960832,
+            "used": 14429376512,
+            "percent": 74.5
+        },
+        "processes": 160,
+        "timestamp": "2026-09-14 11:28:05"
+    },
+    {
+        "hostname": "agent-2",
+        "cpu": 3.3,
+        "memory": {
+            "total": 2064093184,
+            "available": 1140375552,
+            "used": 732872704,
+            "percent": 44.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 6470402048,
+            "used": 12890935296,
+            "percent": 66.6
+        },
+        "processes": 186,
+        "timestamp": "2026-09-14 11:28:07"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1433079808,
+            "used": 467578880,
+            "percent": 30.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4931956736,
+            "used": 14429380608,
+            "percent": 74.5
+        },
+        "processes": 160,
+        "timestamp": "2026-09-14 11:28:11"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1433071616,
+            "used": 467607552,
+            "percent": 30.6
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4931973120,
+            "used": 14429364224,
+            "percent": 74.5
+        },
+        "processes": 159,
+        "timestamp": "2026-09-14 11:28:17"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1440235520,
+            "used": 460496896,
+            "percent": 30.2
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4932018176,
+            "used": 14429319168,
+            "percent": 74.5
+        },
+        "processes": 157,
+        "timestamp": "2026-09-14 11:28:23"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1440247808,
+            "used": 460484608,
+            "percent": 30.2
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4932018176,
+            "used": 14429319168,
+            "percent": 74.5
+        },
+        "processes": 157,
+        "timestamp": "2026-09-14 11:28:29"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1440563200,
+            "used": 460161024,
+            "percent": 30.2
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4932018176,
+            "used": 14429319168,
+            "percent": 74.5
+        },
+        "processes": 157,
+        "timestamp": "2026-09-14 11:28:35"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 100.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1361747968,
+            "used": 538189824,
+            "percent": 34.0
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923588608,
+            "used": 14437748736,
+            "percent": 74.6
+        },
+        "processes": 181,
+        "timestamp": "2026-09-14 11:28:41"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 100.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1098469376,
+            "used": 791371776,
+            "percent": 46.8
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923482112,
+            "used": 14437855232,
+            "percent": 74.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:28:47"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 0.0,
+        "memory": {
+            "total": 2064093184,
+            "available": 1013911552,
+            "used": 863449088,
+            "percent": 50.9
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923482112,
+            "used": 14437855232,
+            "percent": 74.6
+        },
+        "processes": 202,
+        "timestamp": "2026-09-14 11:28:53"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 1.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1026732032,
+            "used": 849158144,
+            "percent": 50.3
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923510784,
+            "used": 14437826560,
+            "percent": 74.6
+        },
+        "processes": 196,
+        "timestamp": "2026-09-14 11:28:59"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 12.5,
+        "memory": {
+            "total": 2064093184,
+            "available": 1031114752,
+            "used": 847106048,
+            "percent": 50.0
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923305984,
+            "used": 14438031360,
+            "percent": 74.6
+        },
+        "processes": 195,
+        "timestamp": "2026-09-14 11:29:05"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 6.7,
+        "memory": {
+            "total": 2064093184,
+            "available": 1029619712,
+            "used": 848592896,
+            "percent": 50.1
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923318272,
+            "used": 14438019072,
+            "percent": 74.6
+        },
+        "processes": 194,
+        "timestamp": "2026-09-14 11:29:12"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 2.2,
+        "memory": {
+            "total": 2064093184,
+            "available": 1035083776,
+            "used": 843153408,
+            "percent": 49.9
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923351040,
+            "used": 14437986304,
+            "percent": 74.6
+        },
+        "processes": 191,
+        "timestamp": "2026-09-14 11:29:18"
+    },
+    {
+        "hostname": "agent-1",
+        "cpu": 3.1,
+        "memory": {
+            "total": 2064093184,
+            "available": 1043333120,
+            "used": 834904064,
+            "percent": 49.5
+        },
+        "disk": {
+            "total": 20424802304,
+            "free": 4923355136,
+            "used": 14437982208,
+            "percent": 74.6
+        },
+        "processes": 189,
+        "timestamp": "2026-09-14 11:29:24"
+    }
+]

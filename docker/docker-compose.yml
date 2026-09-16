@@ -1,0 +1,8 @@
+services:
+  monitoring-server:
+    image: orlandor99/monitoring-server:latest
+    container_name: monitoring-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../server/data:/server/data
