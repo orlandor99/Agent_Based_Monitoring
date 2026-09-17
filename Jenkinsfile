@@ -26,5 +26,12 @@ pipeline{
                 '''
             }
         }
+        stage("Deploy"){
+            steps{
+                dir("ansible"){
+                sh "ansible-playbook -i inventory playbook.yaml"
+                }
+            }
+        }
     }
 }
