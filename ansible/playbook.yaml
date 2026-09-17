@@ -131,3 +131,4 @@
         project_src: /opt/monitoring-server
         files: docker-compose.yml
         pull: always
+        recreate: always
