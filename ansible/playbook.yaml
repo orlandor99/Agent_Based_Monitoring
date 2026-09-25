@@ -12,7 +12,7 @@
     app_dir: "/opt/monitoring-agent"
     script_name: "agent.py"
     python_executable: "/usr/bin/python3"
-    monitoring_server_url: "http://192.168.56.101:5000/metrics"
+    monitoring_server_url: "http://52.28.109.83:5000/metrics"
 
   tasks:
     - name: Install Python and pip
@@ -48,7 +48,8 @@
         owner: root
         group: root
         mode: "0644"
-      notify: Reload systemd
+      notify: 
+        - Restart monitoring agent
 
     - name: Force running
       ansible.builtin.meta: flush_handlers
@@ -60,9 +61,11 @@
         state: started
 
   handlers:
-    - name: Reload systemd
+    - name: Restart monitoring agent
       ansible.builtin.systemd:
+        name: "{{ app_name }}"
         daemon_reload: true
+        state: restarted
 
 - name: Configure central monitoring server
   hosts: monitoring
@@ -89,7 +92,8 @@
 
     - name: Add Docker repository to Apt sources
       ansible.builtin.apt_repository:
-        repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        repo: "deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else 'arm64' if ansible_architecture == 'aarch64' else ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+##        repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
         state: present
         filename: docker
 
