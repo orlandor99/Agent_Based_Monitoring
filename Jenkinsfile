@@ -29,7 +29,9 @@ pipeline{
         stage("Deploy"){
             steps{
                 dir("ansible"){
-                sh "ansible-playbook -i inventory playbook.yaml"
+                    withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key-monitor', keyFileVariable: 'SSH_KEY')]) {
+                        sh "ansible-playbook -i inventory playbook.yaml --private-key \$SSH_KEY"
+                    }
                 }
             }
         }

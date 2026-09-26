@@ -3,4 +3,4 @@ agent-1 ansible_host=192.168.56.102 ansible_user=vm1
 agent-2 ansible_host=192.168.56.103 ansible_user=vm2
 
 [monitoring]
-aws-monitor ansible_host=52.28.109.83 ansible_user=ubuntu
+aws-monitor ansible_host=51.102.2.242 ansible_user=ubuntu

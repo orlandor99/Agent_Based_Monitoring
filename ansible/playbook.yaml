@@ -12,7 +12,7 @@
     app_dir: "/opt/monitoring-agent"
     script_name: "agent.py"
     python_executable: "/usr/bin/python3"
-    monitoring_server_url: "http://52.28.109.83:5000/metrics"
+    monitoring_server_url: "http://{{ hostvars['aws-monitor']['ansible_host'] }}:5000/metrics"
 
   tasks:
     - name: Install Python and pip
@@ -23,7 +23,7 @@
 
     - name: Create directory
       ansible.builtin.file:
-        path: /opt/monitoring-agent
+        path: "{{ app_dir }}"
         state: directory
         mode: '0755'
 
@@ -34,12 +34,12 @@
         owner: "{{ansible_user}}"
         group: "{{ansible_user}}"
       loop:
-        - { src: '../agent/agent.py', dest: '/opt/monitoring-agent/agent.py'}
-        - { src: '../agent/requirements.txt', dest: '/opt/monitoring-agent/requirements.txt'}
+        - { src: '../agent/agent.py', dest: '{{ app_dir }}/agent.py'}
+        - { src: '../agent/requirements.txt', dest: '{{ app_dir }}/requirements.txt'}
 
     - name: Install requirements
       ansible.builtin.pip:
-        requirements: /opt/monitoring-agent/requirements.txt
+        requirements: "{{ app_dir }}/requirements.txt"
 
     - name: Template systemd service
       ansible.builtin.template:
@@ -127,8 +127,8 @@
       ansible.builtin.copy:
         src: "../docker/docker-compose.yml"
         dest: "/opt/monitoring-server/docker-compose.yml"
-        owner: "{{ansible_user}}"
-        group: "{{ansible_user}}"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
 
     - name: Deploy docker compose file
       community.docker.docker_compose_v2:
