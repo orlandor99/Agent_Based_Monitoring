@@ -1,6 +1,8 @@
 #!/bin/bash
 
+echo "Start script"
 EC2_IP=$(cd ../terraform && terraform output -raw public_ip)
+echo $EC2_IP
 
 cat <<EOF
 [agents]
