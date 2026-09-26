@@ -1,7 +1,7 @@
 
 import os
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 DATA_FILE = '/server/data/metrics.json'
 
@@ -81,6 +81,30 @@ def machine(hostname):
         "error": f"Machine '{hostname}' not found"
     }), 404
 
+@app.route('/', methods=['GET'])
+def dashboard():
+    if os.path.exists(DATA_FILE) and os.path.getsize(DATA_FILE) > 0:
+        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            try:
+                metrics_data = json.load(f)
+            except json.JSONDecodeError:
+                metrics_data = []
+    else:
+        metrics_data = []
+
+    latest_metrics = {}
+
+    for metric in metrics_data:
+        hostname = metric.get("hostname")
+
+        if hostname:
+            latest_metrics[hostname] = metric
+
+    return render_template(
+        'index.html',
+        machines=latest_metrics.values()
+    )
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
 
