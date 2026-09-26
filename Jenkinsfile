@@ -11,6 +11,13 @@ pipeline{
                 git branch: "${BRANCH}", url: "${GIT_REPO}"
             }
         }
+        stage("Terraform init"){
+            steps{
+                dir("terraform"){
+                    sh "terraform init"
+                }
+            }
+        }
         stage("Generate inventory file"){
             steps{
                 dir("ansible"){
