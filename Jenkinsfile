@@ -11,6 +11,13 @@ pipeline{
                 git branch: "${BRANCH}", url: "${GIT_REPO}"
             }
         }
+        stage("Generate inventory file"){
+            steps{
+                dir("ansible"){
+                    sh "./generate_inventory.sh"
+                }
+            }
+        }
         stage("Docker Build"){
             steps{
                 script{

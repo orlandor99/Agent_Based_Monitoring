@@ -33,8 +33,8 @@ def get_system_info():
     }
 
 interval = int(os.getenv("AGENT_INTERVAL", 5))  # Default interval is 5 seconds
-server_url = os.getenv("MONITORING_SERVER_URL", "http://63.185.112.3:5000/metrics")  # Default server URL
-##server_url = os.getenv("MONITORING_SERVER_URL", "http://localhost:5000/metrics")  # Default server URL
+##server_url = os.getenv("MONITORING_SERVER_URL", "http://63.185.112.3:5000/metrics")  # Default server URL
+server_url = os.getenv("MONITORING_SERVER_URL", "http://localhost:5000/metrics")  # Default server URL
 
 try:
     while True:
