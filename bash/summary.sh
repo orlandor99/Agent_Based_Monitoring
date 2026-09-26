@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SERVER_URL="${MONITORING_SERVER_URL:-http://localhost:5000}"
+EC2_IP=$(cd ../terraform && terraform output -raw public_ip)
+SERVER_URL="${MONITORING_SERVER_URL:-http://$EC2_IP:5000}"
 
 echo
 echo "========================================"
