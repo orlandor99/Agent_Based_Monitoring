@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage("Checkout") {
+            steps {
+                git branch: "main",
+                    url: "https://github.com/orlandor99/Agent_Based_Monitoring"
+            }
+        }
+
+        stage("Terraform init") {
+            steps {
+                dir("terraform") {
+                    sh "terraform init"
+                }
+            }
+        }
+
+        stage("Terraform destroy") {
+            steps {
+                dir("terraform") {
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: 'aws_credentials',
+                            usernameVariable: 'AWS_ACCESS_KEY_ID',
+                            passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                        )
+                    ]) {
+                        sh "terraform destroy -auto-approve"
+                    }
+                }
+            }
+        }
+    }
+}
