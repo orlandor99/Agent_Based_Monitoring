@@ -21,7 +21,15 @@ pipeline{
         stage("Terraform apply"){
             steps{
                 dir("terraform"){
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: 'aws_credentials',
+                            usernameVariable: 'AWS_ACCESS_KEY_ID',
+                            passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                        )
+                    ]) {
                     sh "terraform apply -auto-approve"
+                    }
                 }
             }
         }
