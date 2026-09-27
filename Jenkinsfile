@@ -21,7 +21,7 @@ pipeline{
                             passwordVariable: 'AWS_SECRET_ACCESS_KEY'
                         )
                     ]) {
-                    sh "terraform init"
+                    sh "terraform init -input=false -force-copy"
                     }
                 }
             }
