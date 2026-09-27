@@ -1,32 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Monitoring Dashboard</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f4f4;
+
+        * {
+            box-sizing: border-box;
         }
 
-        h1 {
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        /* HEADER */
+
+        .header {
             text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #777;
+        }
+
+        /* SERVER STATUS */
+
+        .server-status {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-online {
+            background-color: #28a745;
+        }
+
+        .status-offline {
+            background-color: #dc3545;
+        }
+
+        /* STATISTICS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        /* TABLE */
+
+        .table-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: white;
-            margin-top: 30px;
         }
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
+        th,
+        td {
+            padding: 14px;
             text-align: center;
+            border-bottom: 1px solid #eee;
         }
 
         th {
@@ -34,45 +128,401 @@
             color: white;
         }
 
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+        tr:last-child td {
+            border-bottom: none;
         }
+
+        .hostname {
+            font-weight: bold;
+        }
+
+        .percentage {
+            font-weight: bold;
+        }
+
+        /* MACHINE STATUS */
+
+        .machine-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <h1>Monitoring Dashboard</h1>
+<div class="container">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Hostname</th>
-                <th>CPU</th>
-                <th>Memory Used</th>
-                <th>Memory %</th>
-                <th>Disk Free</th>
-                <th>Disk %</th>
-                <th>Processes</th>
-                <th>Last Update</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            {% for machine in machines %}
-            <tr>
-                <td>{{ machine.hostname }}</td>
-                <td>{{ machine.cpu }}%</td>
-                <td>{{ machine.memory.used }}</td>
-                <td>{{ machine.memory.percent }}%</td>
-                <td>{{ machine.disk.free }}</td>
-                <td>{{ machine.disk.percent }}%</td>
-                <td>{{ machine.processes }}</td>
-                <td>{{ machine.timestamp }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>Monitoring Dashboard</h1>
+
+        <p>Agent Based Monitoring</p>
+
+    </div>
+
+
+    <!-- SERVER STATUS -->
+
+    <div class="server-status">
+
+        <span id="server-dot"
+              class="status-dot status-online">
+        </span>
+
+        <strong>Monitoring Server:</strong>
+
+        <span id="server-status-text">
+            ONLINE
+        </span>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+
+        <div class="stat-card">
+
+            <h3>Machines Monitored</h3>
+
+            <div class="stat-value">
+                {{ machines|length }}
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>Average Memory Usage</h3>
+
+            <div class="stat-value">
+
+                {{ avg_memory }}%
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>Average Disk Usage</h3>
+
+            <div class="stat-value">
+
+                {{ avg_disk }}%
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MACHINES -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Status</th>
+                    <th>Hostname</th>
+                    <th>CPU</th>
+                    <th>Memory</th>
+                    <th>Disk</th>
+                    <th>Processes</th>
+                    <th>Last Update</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for machine in machines %}
+
+                <tr>
+
+
+                    <!-- STATUS -->
+
+                    <td>
+
+                        <span
+                            class="machine-status"
+                            data-timestamp="{{ machine.timestamp }}"
+                        >
+
+                            <span class="status-dot"></span>
+
+                            <span class="status-text">
+                                Checking...
+                            </span>
+
+                        </span>
+
+                    </td>
+
+
+                    <!-- HOSTNAME -->
+
+                    <td class="hostname">
+
+                        {{ machine.hostname }}
+
+                    </td>
+
+
+                    <!-- CPU -->
+
+                    <td class="percentage">
+
+                        {{ machine.cpu }}%
+
+                    </td>
+
+
+                    <!-- MEMORY -->
+
+                    <td class="percentage">
+
+                        {{ machine.memory.percent }}%
+
+                    </td>
+
+
+                    <!-- DISK -->
+
+                    <td class="percentage">
+
+                        {{ machine.disk.percent }}%
+
+                    </td>
+
+
+                    <!-- PROCESSES -->
+
+                    <td>
+
+                        {{ machine.processes }}
+
+                    </td>
+
+
+                    <!-- TIMESTAMP -->
+
+                    <td>
+
+                        {{ machine.timestamp }}
+
+                    </td>
+
+
+                </tr>
+
+                {% endfor %}
+
+
+                {% if machines|length == 0 %}
+
+                <tr>
+
+                    <td colspan="7">
+
+                        No monitoring data available.
+
+                    </td>
+
+                </tr>
+
+                {% endif %}
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="footer">
+
+        Dashboard refreshes automatically every 5 seconds.
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+    /*
+     * Check whether each monitoring agent
+     * is still sending metrics.
+     *
+     * Agent interval = 5 seconds.
+     * We allow up to 15 seconds before
+     * considering an agent offline.
+     */
+
+    function updateMachineStatus() {
+
+        const statuses =
+            document.querySelectorAll(".machine-status");
+
+
+        const now = new Date();
+
+
+        statuses.forEach(function(status) {
+
+            const timestamp =
+                status.getAttribute("data-timestamp");
+
+            const dot =
+                status.querySelector(".status-dot");
+
+            const text =
+                status.querySelector(".status-text");
+
+
+            const metricTime =
+                new Date(timestamp.replace(" ", "T"));
+
+
+            const difference =
+                (now - metricTime) / 1000;
+
+
+            if (difference <= 15) {
+
+                dot.classList.add("status-online");
+                dot.classList.remove("status-offline");
+
+                text.textContent = "ONLINE";
+
+            } else {
+
+                dot.classList.add("status-offline");
+                dot.classList.remove("status-online");
+
+                text.textContent = "OFFLINE";
+
+            }
+
+        });
+
+    }
+
+
+    /*
+     * Check whether the Flask server
+     * is responding.
+     */
+
+    function checkServerStatus() {
+
+        fetch("/machines")
+
+            .then(function(response) {
+
+                if (!response.ok) {
+                    throw new Error("Server error");
+                }
+
+                document
+                    .getElementById("server-dot")
+                    .className =
+                    "status-dot status-online";
+
+                document
+                    .getElementById("server-status-text")
+                    .textContent = "ONLINE";
+
+            })
+
+            .catch(function() {
+
+                document
+                    .getElementById("server-dot")
+                    .className =
+                    "status-dot status-offline";
+
+                document
+                    .getElementById("server-status-text")
+                    .textContent = "OFFLINE";
+
+            });
+
+    }
+
+
+    /*
+     * Initial status check.
+     */
+
+    updateMachineStatus();
+
+    checkServerStatus();
+
+
+    /*
+     * Refresh dashboard every 5 seconds.
+     */
+
+    setInterval(function() {
+
+        location.reload();
+
+    }, 5000);
+
+
+</script>
+
 
 </body>
+
 </html>

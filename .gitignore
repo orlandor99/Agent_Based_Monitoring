@@ -1,3 +1,15 @@
-**/.terraform/
-*.tfstate
-*.tfvars
+# Python
+__pycache__/
+*.py[cod]
+
+# Runtime data
+server/data/metrics.json
+
+# Ansible generated inventory
+ansible/inventory
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars

@@ -100,9 +100,26 @@ def dashboard():
         if hostname:
             latest_metrics[hostname] = metric
 
+    machines = list(latest_metrics.values())
+
+    # Calculate average memory and disk usage
+    if machines:
+        avg_memory = sum(
+            machine["memory"]["percent"] for machine in machines
+        ) / len(machines)
+
+        avg_disk = sum(
+            machine["disk"]["percent"] for machine in machines
+        ) / len(machines)
+    else:
+        avg_memory = 0
+        avg_disk = 0
+
     return render_template(
         'index.html',
-        machines=latest_metrics.values()
+        machines=machines,
+        avg_memory=round(avg_memory, 1),
+        avg_disk=round(avg_disk, 1)
     )
     
 if __name__ == '__main__':
