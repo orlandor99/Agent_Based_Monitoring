@@ -44,7 +44,15 @@ pipeline{
         stage("Generate inventory file"){
             steps{
                 dir("ansible"){
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: 'aws_credentials',
+                            usernameVariable: 'AWS_ACCESS_KEY_ID',
+                            passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                        )
+                    ]) {
                     sh "./generate_inventory.sh"
+                    }
                 }
             }
         }
