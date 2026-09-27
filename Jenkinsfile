@@ -18,6 +18,13 @@ pipeline{
                 }
             }
         }
+        stage("Terraform apply"){
+            steps{
+                dir("terraform"){
+                    sh "terraform apply -auto-approve"
+                }
+            }
+        }
         stage("Generate inventory file"){
             steps{
                 dir("ansible"){
