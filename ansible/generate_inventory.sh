@@ -13,9 +13,9 @@ fi
 # Generate the inventory file
 cat > inventory <<EOF
 [agents]
-agent-1 ansible_host=192.168.56.102 ansible_user=vm1 ansible_python_interpreter=/usr/bin/python3.10
-agent-2 ansible_host=192.168.56.103 ansible_user=vm2 ansible_python_interpreter=/usr/bin/python3.10
+agent-1 ansible_host=192.168.56.102 ansible_user=vm1
+agent-2 ansible_host=192.168.56.103 ansible_user=vm2
 
 [monitoring]
-aws-monitor ansible_host=$EC2_IP ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3.10
+aws-monitor ansible_host=$EC2_IP ansible_user=ubuntu
 EOF
