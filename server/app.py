@@ -9,31 +9,34 @@ app = Flask(__name__)
 
 @app.route('/metrics', methods=['POST'])
 def metrics():
-    # 1. Primește JSON-ul nou
+    # Read the new metric object from the request body.
     new_metric = request.get_json()
     
-    # 2. Deschide și citește datele VECHI (dacă fișierul există și nu e gol)
+    # Load the existing metrics if the data file exists and is not empty.
     if os.path.exists(DATA_FILE) and os.path.getsize(DATA_FILE) > 0:
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
             try:
                 saved_metrics = json.load(f)
-                # Ne asigurăm că datele citite sunt o listă, nu un singur obiect
+
+                # Keep the stored data in a list for consistent handling.
                 if not isinstance(saved_metrics, list):
                     saved_metrics = [saved_metrics]
             except json.JSONDecodeError:
+                # Start with an empty list if the file contains invalid JSON.
                 saved_metrics = []
     else:
+        # Start with an empty list when the file does not exist or is empty.
         saved_metrics = []
 
-    # 3. Adaugă noua măsurătoare la cele vechi
+    # Append the new sample to the stored metrics history.
     saved_metrics.append(new_metric)
     print("Saved metrics updated:", saved_metrics)
 
-    # 4. Salvează TOATE datele (istoricul complet + noua măsurătoare)
+    # Save the complete metrics history back to the JSON file.
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(saved_metrics, f, indent=4)
 
-    # 5. Returnează răspunsul
+    # Confirm that the metrics were received.
     return jsonify({"message": "Metrics received"}), 201
 
 @app.route('/machines', methods=['GET'])
@@ -46,12 +49,15 @@ def machines():
                 machines_data = []
     else:
         machines_data = []
+
+    # Build a unique list of hostnames found in the metrics history.
     machines = []
     for metric in machines_data:
         hostname = metric.get("hostname")
         if hostname and hostname not in machines:
             machines.append(hostname)
-    # Implement logic to retrieve machine information
+
+    # Return the registered hostnames.
     return jsonify({"machines": machines}), 200
 
 @app.route('/machines/<hostname>', methods=['GET'])
@@ -65,18 +71,21 @@ def machine(hostname):
     else:
         machines_data = []
 
+    # Select all saved samples for the requested hostname.
     machine_metrics = [
         metric for metric in machines_data
         if metric.get("hostname") == hostname
     ]
 
     if machine_metrics:
+        # Return the most recently saved sample for this machine.
         latest_metrics = machine_metrics[-1]
         return jsonify({
             "hostname": hostname,
             "metrics": latest_metrics
         }), 200
 
+    # Return 404 when no samples exist for the requested machine.
     return jsonify({
         "error": f"Machine '{hostname}' not found"
     }), 404
@@ -92,6 +101,7 @@ def dashboard():
     else:
         metrics_data = []
 
+    # Keep only the latest sample for each hostname.
     latest_metrics = {}
 
     for metric in metrics_data:
@@ -114,7 +124,8 @@ def dashboard():
     else:
         avg_memory = 0
         avg_disk = 0
-
+        
+    # Render the dashboard with the latest metrics and calculated averages.
     return render_template(
         'index.html',
         machines=machines,

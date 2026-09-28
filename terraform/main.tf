@@ -6,6 +6,7 @@ terraform {
     }
   }
 
+  # Store Terraform state centrally so local runs and Jenkins share the same state.
   backend "s3" {
     bucket = "monitor-s3-bucket-state"
     key    = "state/terraform.tfstate"
@@ -18,6 +19,7 @@ provider "aws" {
   region = var.region
 }
 
+# Create the VPC used by the monitoring server.
 resource "aws_vpc" "monitor_vpc" {
   cidr_block = var.cidr_block
   tags = {
@@ -50,6 +52,7 @@ resource "aws_route_table_association" "monitor-rta" {
 
 }
 
+# Derive a /24 subnet from the configured VPC CIDR.
 resource "aws_subnet" "monitor_subnet" {
   vpc_id     = aws_vpc.monitor_vpc.id
   cidr_block = cidrsubnet(var.cidr_block, 8, 2)
@@ -59,6 +62,8 @@ resource "aws_subnet" "monitor_subnet" {
   }
 }
 
+# Allow SSH, HTTP, and the monitoring API.
+# Restrict these CIDRs to trusted addresses outside a demo environment.
 resource "aws_security_group" "monitor-sg" {
   name   = "monitor-sg"
   vpc_id = aws_vpc.monitor_vpc.id

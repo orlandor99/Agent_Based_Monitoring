@@ -1,4 +1,5 @@
 ---
+# Install and run the monitoring agent on each host in the agents inventory group.
 - name: Configure monitoring agents
   hosts: agents
   become: true
@@ -12,6 +13,7 @@
     app_dir: "/opt/monitoring-agent"
     script_name: "agent.py"
     python_executable: "/usr/bin/python3"
+    # Build the agent URL from the current EC2 address in the generated inventory.
     monitoring_server_url: "http://{{ hostvars['aws-monitor']['ansible_host'] }}:5000/metrics"
 
   tasks:
@@ -61,6 +63,7 @@
         state: started
 
   handlers:
+    # Reload systemd and restart the agent when its service file changes.
     - name: Restart monitoring agent
       ansible.builtin.systemd:
         name: "{{ app_name }}"

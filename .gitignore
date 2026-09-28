@@ -1,15 +1,25 @@
 # Python
 __pycache__/
 *.py[cod]
+.venv/
+venv/
 
-# Runtime data
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Runtime data and logs
 server/data/metrics.json
+*.log
 
-# Ansible generated inventory
-ansible/inventory
+# Generated Ansible inventory
+/ansible/inventory
 
-# Terraform
+# Terraform working files and local state
 terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.*
-# terraform/*.tfvars
+terraform/*.tfvars
+terraform/*.tfvars.json
+terraform/*.tfplan
