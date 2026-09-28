@@ -20,6 +20,6 @@ server/data/metrics.json
 terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.*
-terraform/*.tfvars
+# terraform/*.tfvars
 terraform/*.tfvars.json
 terraform/*.tfplan
