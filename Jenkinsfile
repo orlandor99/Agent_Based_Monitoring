@@ -72,23 +72,18 @@ pipeline{
             }
         }
         stage("Check SSH access") {
-    steps {
-        dir("ansible") {
-            withCredentials([
-                sshUserPrivateKey(
-                    credentialsId: 'ssh-key-monitor',
-                    keyFileVariable: 'SSH_KEY'
-                )
-            ]) {
-                sh '''
-                    ansible aws-monitor -i inventory -m ping --private-key "$SSH_KEY"
-                    ansible agent-1 -i inventory -m ping --private-key "$SSH_KEY"
-                    ansible agent-2 -i inventory -m ping --private-key "$SSH_KEY"
-                '''
+            steps {
+                dir("ansible") {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key-monitor',keyFileVariable: 'SSH_KEY')]) {
+                        sh '''
+                            ansible aws-monitor -i inventory -m ping --private-key "$SSH_KEY"
+                            ansible agent-1 -i inventory -m ping --private-key "$SSH_KEY"
+                            ansible agent-2 -i inventory -m ping --private-key "$SSH_KEY"
+                        '''
+                        }
+                }
             }
         }
-    }
-
         stage("Deploy"){
             steps{
                 dir("ansible"){
