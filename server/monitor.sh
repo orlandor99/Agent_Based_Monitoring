@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVER_URL="http://192.168.56.101:5000"
+SERVER_URL="http://18.193.105.31:5000"
 HEADER="================================"
 set -o pipefail
 
