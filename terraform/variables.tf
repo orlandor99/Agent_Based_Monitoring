@@ -30,3 +30,9 @@ variable "default_cidr" {
   type        = string
   description = "Internet gateway"
 }
+
+variable "ssh_key_path" {
+  type        = string
+  description = "Path to ssh key"
+  default     = "~/.ssh/id_rsa.pub"
+}

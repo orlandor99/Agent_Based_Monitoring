@@ -1,5 +1,6 @@
 ---
 # Install and run the monitoring agent on each host in the agents inventory group.
+
 - name: Configure monitoring agents
   hosts: agents
   become: true
@@ -13,6 +14,7 @@
     app_dir: "/opt/monitoring-agent"
     script_name: "agent.py"
     python_executable: "/usr/bin/python3"
+    
     # Build the agent URL from the current EC2 address in the generated inventory.
     monitoring_server_url: "http://{{ hostvars['aws-monitor']['ansible_host'] }}:5000/metrics"
 
@@ -96,7 +98,6 @@
     - name: Add Docker repository to Apt sources
       ansible.builtin.apt_repository:
         repo: "deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else 'arm64' if ansible_architecture == 'aarch64' else ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
-##        repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
         state: present
         filename: docker
 

@@ -11,7 +11,7 @@ terraform {
     bucket = "monitor-s3-bucket-state"
     key    = "state/terraform.tfstate"
     region = "eu-central-1"
-  } 
+  }
 
 }
 
@@ -111,6 +111,6 @@ resource "aws_instance" "monitor" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "monitor-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = file(pathexpand(var.ssh_key_path))
 }
 
