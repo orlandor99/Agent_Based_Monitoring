@@ -97,6 +97,18 @@ Instaleaza pe Jenkins CLI-urile Terraform, Ansible si Docker, plus pluginurile G
 
 Adresele si utilizatorii agent-1/agent-2 sunt definite in `ansible/generate_inventory.sh`: `192.168.56.102`/`vm1` si `192.168.56.103`/`vm2`. Adapteaza-le mediului tau.
 
+## Schimbarea sau adaugarea unui agent
+
+Pentru fiecare agent nou sau inlocuit, verifica urmatoarele:
+
+1. Masina trebuie sa ruleze Linux si sa aiba Python 3. Ansible instaleaza dependentele agentului din `agent/requirements.txt`.
+2. Actualizeaza `ansible/generate_inventory.sh` cu hostname-ul, IP-ul si utilizatorul SSH al agentului. Jenkins trebuie sa poata ajunge la agent prin SSH.
+3. Adauga cheia publica potrivita in `~/.ssh/authorized_keys` pentru utilizatorul configurat. Cheia privata din Jenkins Credential `ssh-key-monitor` trebuie sa fie perechea acesteia. Utilizatorul trebuie sa poata folosi `sudo` pentru configurarea serviciului.
+4. Verifica setarile agentului din Ansible pentru URL-ul serverului, de exemplu `MONITORING_SERVER_URL=http://<EC2_PUBLIC_IP>:5000/metrics`, si intervalul de colectare.
+5. Ruleaza din nou pipeline-ul Jenkins si verifica in dashboard ca apare noul hostname.
+
+Daca inlocuiesti un agent, elimina sau actualizeaza intrarea veche din inventar ca sa nu mai fie folosit IP-ul vechi.
+
 ## Rulare manuala a agentului
 
 Pe hostul agentului, cu Python 3:
@@ -153,8 +165,7 @@ Serverul citeste si rescrie intregul fisier JSON la fiecare POST. Implementarea 
 
 Configuratia curenta este potrivita pentru o demonstratie de curs:
 
-- Security group-ul permite momentan acces public pe porturile 22 si 5000, deoarece `default_cidr` este `0.0.0.0/0`. Portul 80 nu este configurat si aplicatia nu il foloseste.
-- Jenkins a raportat IP-ul public de iesire `188.26.8.196`. Acesta nu este inca configurat ca allowlist in clona curenta. Restrange SSH la Jenkins si API-ul la IP-urile publice de iesire ale agentilor si ale utilizatorilor dashboard-ului.
+- Security group-ul permite momentan acces public pe porturile 22 si 5000, deoarece `default_cidr` este `0.0.0.0/0`.
 - Separa variabilele CIDR inbound de egress inainte sa schimbi `default_cidr`: Terraform o foloseste in prezent si pentru traficul outbound necesar descarcarii pachetelor si imaginilor Docker.
 - API-ul nu are autentificare sau HTTPS.
 - `ansible/ansible.cfg` dezactiveaza verificarea cheilor host SSH, convenabila pentru EC2 cu IP dinamic, dar fara verificarea identitatii hostului.
