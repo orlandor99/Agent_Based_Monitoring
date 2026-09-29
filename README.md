@@ -1,14 +1,14 @@
 # Agent-Based Monitoring
 
-Proiect DevOps pentru monitorizarea hosturilor Linux cu agenți Python și un server central.
+Proiect DevOps pentru monitorizarea hosturilor Linux cu agenti Python si un server central.
 
 ## Ce face
 
-Agenții colectează periodic utilizarea CPU, memoria, discul și numărul de procese. Trimit eșantioanele prin HTTP către serverul central Flask, care le salvează în JSON. API-ul oferă lista hosturilor și ultima valoare pentru fiecare. Dashboard-ul HTML afișează metricile recente și marchează agenții ca online/offline.
+Agentii colecteaza periodic utilizarea CPU, memoria, discul si numarul de procese. Trimit esantioanele prin HTTP catre serverul central Flask, care le salveaza in JSON. API-ul ofera lista hosturilor si ultima valoare pentru fiecare. Dashboard-ul HTML afiseaza metricile recente si marcheaza agentii ca online/offline.
 
-Serverul adaugă `received_at` în UTC și păstrează metricile din ultimele 7 zile. Înregistrările expirate sunt eliminate la următorul POST. Dacă serverul nu răspunde, agentul înregistrează eroarea și reîncearcă la ciclul următor. `systemd` pornește agentul la boot și îl repornește după o terminare neașteptată.
+Serverul adauga `received_at` in UTC si pastreaza metricile din ultimele 7 zile. Inregistrarile expirate sunt eliminate la urmatorul POST. Daca serverul nu raspunde, agentul inregistreaza eroarea si reincearca la ciclul urmator. `systemd` porneste agentul la boot si il reporneste dupa o terminare neasteptata.
 
-## Arhitectură
+## Arhitectura
 
 ```mermaid
 flowchart LR
@@ -22,35 +22,35 @@ flowchart LR
 
 ## Tehnologii
 
-- Python și `psutil` pentru colectarea metricilor.
-- Flask pentru API și dashboard.
-- Docker și Compose pentru serverul central și volumul persistent.
+- Python si `psutil` pentru colectarea metricilor.
+- Flask pentru API si dashboard.
+- Docker si Compose pentru serverul central si volumul persistent.
 - Docker Hub pentru imaginea containerului.
-- Ansible și `systemd` pentru configurarea serverului și agenților.
-- Jenkins pentru build, publicarea imaginii și deployment.
-- Terraform și AWS pentru EC2, rețea, security group și state remote în S3.
+- Ansible si `systemd` pentru configurarea serverului si agentilor.
+- Jenkins pentru build, publicarea imaginii si deployment.
+- Terraform si AWS pentru EC2, retea, security group si state remote in S3.
 
 ## Structura repository-ului
 
-- `agent/`: codul agentului, dependențele și rularea manuală.
-- `server/`: aplicația Flask, dashboard-ul și dependențele serverului.
-- `docker/`: Dockerfile și fișierul Compose.
-- `ansible/`: playbook, configurare, inventar generat și `requirements.yaml`.
+- `agent/`: codul agentului, dependentele si rularea manuala.
+- `server/`: aplicatia Flask, dashboard-ul si dependentele serverului.
+- `docker/`: Dockerfile si fisierul Compose.
+- `ansible/`: playbook, configurare, inventar generat si `requirements.yaml`.
 - `bash/summary.sh`: sumar al metricilor prin API.
-- `terraform/`: infrastructură, variabile și outputs.
+- `terraform/`: infrastructura, variabile si outputs.
 - `Jenkinsfile`: pipeline-ul principal CI/CD.
-- `Jenkinsfile.destroy`: pipeline separat pentru ștergerea infrastructurii.
+- `Jenkinsfile.destroy`: pipeline separat pentru stergerea infrastructurii.
 
 ## API
 
-| Metodă | Endpoint | Descriere |
+| Metoda | Endpoint | Descriere |
 | --- | --- | --- |
-| POST | `/metrics` | Primește un eșantion JSON de la agent și adaugă `received_at`. |
-| GET | `/machines` | Listează hosturile cunoscute. |
-| GET | `/machines/<hostname>` | Returnează ultima metrică pentru host. |
-| GET | `/` | Afișează dashboard-ul HTML. |
+| POST | `/metrics` | Primeste un esantion JSON de la agent si adauga `received_at`. |
+| GET | `/machines` | Listeaza hosturile cunoscute. |
+| GET | `/machines/<hostname>` | Returneaza ultima metrica pentru host. |
+| GET | `/` | Afiseaza dashboard-ul HTML. |
 
-Exemple, după deploy:
+Exemple, dupa deploy:
 
 ```bash
 curl "http://<EC2_PUBLIC_IP>:5000/machines"
@@ -59,45 +59,45 @@ curl "http://<EC2_PUBLIC_IP>:5000/machines/agent-1"
 
 Dashboard: `http://<EC2_PUBLIC_IP>:5000/`.
 
-API-ul expune ultima metrică pentru fiecare host; endpoint pentru interogarea unei serii istorice nu există momentan, deși JSON-ul păstrează până la 7 zile de eșantioane.
+API-ul expune ultima metrica pentru fiecare host; endpoint pentru interogarea unei serii istorice nu exista momentan, desi JSON-ul pastreaza pana la 7 zile de esantioane.
 
 ## Pipeline Jenkins
 
 La push pe branch-ul `main`, Jenkins:
 
 1. Face checkout.
-2. Inițializează backend-ul S3 și rulează Terraform apply.
-3. Ia IP-ul EC2 din output și generează `ansible/inventory`.
-4. Construiește imaginea `orlandor99/monitoring-server:latest` și o publică pe Docker Hub.
-5. Instalează colecția `community.docker 3.13.3` din `ansible/requirements.yaml`.
-6. Verifică accesul SSH și rulează playbook-ul Ansible.
+2. Initializeaza backend-ul S3 si ruleaza Terraform apply.
+3. Ia IP-ul EC2 din output si genereaza `ansible/inventory`.
+4. Construieste imaginea `orlandor99/monitoring-server:latest` si o publica pe Docker Hub.
+5. Instaleaza colectia `community.docker 3.13.3` din `ansible/requirements.yaml`.
+6. Verifica accesul SSH si ruleaza playbook-ul Ansible.
 
-Pipeline-ul aplică Terraform automat la fiecare build. Verifică schimbările Terraform înainte de push și nu rula pipeline-ul `Jenkinsfile.destroy` decât când dorești să elimini infrastructura.
+Pipeline-ul aplica Terraform automat la fiecare build. Verifica schimbarile Terraform inainte de push si nu rula pipeline-ul `Jenkinsfile.destroy` decat cand doresti sa elimini infrastructura.
 
 ## Configurare
 
-### AWS și Terraform
+### AWS si Terraform
 
-- Bucket-ul backend `monitor-s3-bucket-state` trebuie să existe în regiunea `eu-central-1` înainte de `terraform init`.
-- `terraform/terraform.tfvars` conține AMI-ul, CIDR-ul VPC și ruta implicită. Actualizează AMI-ul pentru regiunea și imaginea folosite.
-- În configurația clonată, `default_cidr` este `0.0.0.0/0`. `main.tf` folosește aceeași variabilă pentru regulile inbound ale porturilor 22 și 5000, dar și pentru egress.
+- Bucket-ul backend `monitor-s3-bucket-state` trebuie sa existe in regiunea `eu-central-1` inainte de `terraform init`.
+- `terraform/terraform.tfvars` contine AMI-ul, CIDR-ul VPC si ruta implicita. Actualizeaza AMI-ul pentru regiunea si imaginea folosite.
+- In configuratia clonata, `default_cidr` este `0.0.0.0/0`. `main.tf` foloseste aceeasi variabila pentru regulile inbound ale porturilor 22 si 5000, dar si pentru egress.
 - `ssh_key_path` are implicit `~/.ssh/id_rsa.pub`. Terraform extinde calea cu `pathexpand()`.
-- Fișierul cu cheia publică trebuie să existe pe mașina care rulează Terraform. În Jenkins, `~` indică home-ul utilizatorului Jenkins.
-- Cheia publică folosită de Terraform trebuie să corespundă cheii private din Jenkins Credential `ssh-key-monitor`.
+- Fisierul cu cheia publica trebuie sa existe pe masina care ruleaza Terraform. In Jenkins, `~` indica home-ul utilizatorului Jenkins.
+- Cheia publica folosita de Terraform trebuie sa corespunda cheii private din Jenkins Credential `ssh-key-monitor`.
 
 ### Credentiale Jenkins
 
-Creează credentialele cu ID-urile folosite în `Jenkinsfile`:
+Creeaza credentialele cu ID-urile folosite in `Jenkinsfile`:
 
-- `aws_credentials`: access key și secret key AWS.
-- `dockerhub-credentials`: utilizator și parolă/token Docker Hub.
-- `ssh-key-monitor`: cheia privată SSH pentru EC2 și hosturile agent.
+- `aws_credentials`: access key si secret key AWS.
+- `dockerhub-credentials`: utilizator si parola/token Docker Hub.
+- `ssh-key-monitor`: cheia privata SSH pentru EC2 si hosturile agent.
 
-Instalează pe Jenkins CLI-urile Terraform, Ansible și Docker, plus pluginurile Git, Pipeline și Docker Pipeline.
+Instaleaza pe Jenkins CLI-urile Terraform, Ansible si Docker, plus pluginurile Git, Pipeline si Docker Pipeline.
 
-Adresele și utilizatorii agent-1/agent-2 sunt definite în `ansible/generate_inventory.sh`: `192.168.56.102`/`vm1` și `192.168.56.103`/`vm2`. Adaptează-le mediului tău.
+Adresele si utilizatorii agent-1/agent-2 sunt definite in `ansible/generate_inventory.sh`: `192.168.56.102`/`vm1` si `192.168.56.103`/`vm2`. Adapteaza-le mediului tau.
 
-## Rulare manuală a agentului
+## Rulare manuala a agentului
 
 Pe hostul agentului, cu Python 3:
 
@@ -109,24 +109,24 @@ pip install -r requirements.txt
 MONITORING_SERVER_URL="http://<EC2_PUBLIC_IP>:5000/metrics" AGENT_INTERVAL=5 python agent.py
 ```
 
-Alternativ, `agent/run.sh` instalează dependențele și setează intervalul la 10 secunde. Setează `MONITORING_SERVER_URL` înainte de pornire.
+Alternativ, `agent/run.sh` instaleaza dependentele si seteaza intervalul la 10 secunde. Seteaza `MONITORING_SERVER_URL` inainte de pornire.
 
-## Sumar Bash și verificări
+## Sumar Bash si verificari
 
-Din rădăcina repository-ului, cu Bash, `curl`, `jq` și acces la output-ul Terraform:
+Din radacina repository-ului, cu Bash, `curl`, `jq` si acces la output-ul Terraform:
 
 ```bash
 cd bash
 ./summary.sh
 ```
 
-Sau indică explicit URL-ul serverului:
+Sau indica explicit URL-ul serverului:
 
 ```bash
 MONITORING_SERVER_URL="http://<EC2_PUBLIC_IP>:5000" ./summary.sh
 ```
 
-Pe hostul agentului poți verifica serviciul și logurile cu:
+Pe hostul agentului poti verifica serviciul si logurile cu:
 
 ```bash
 sudo systemctl status monitoring_agent
@@ -139,25 +139,25 @@ Pe EC2, logurile serverului sunt disponibile prin:
 docker logs -f --tail=100 monitoring-server
 ```
 
-## Persistența datelor
+## Persistenta datelor
 
-Compose montează volumul numit `monitoring-metrics` în container la `/server/data`, unde aplicația scrie `metrics.json`. Volumul supraviețuiește ștergerii și recreării containerului. Un `docker compose down` obișnuit nu șterge volumul; `docker compose down -v` îl șterge.
+Compose monteaza volumul numit `monitoring-metrics` in container la `/server/data`, unde aplicatia scrie `metrics.json`. Volumul supravietuieste stergerii si recrearii containerului. Un `docker compose down` obisnuit nu sterge volumul; `docker compose down -v` il sterge.
 
-Volumul este local pe instanța EC2. **`terraform destroy` șterge EC2 și volumul cu metrici.** Bucket-ul S3 configurat în Terraform păstrează state-ul Terraform, nu datele aplicației. Pentru a păstra datele după ștergerea EC2 ar trebui un backup separat; configurația actuală nu face acest lucru.
+Volumul este local pe instanta EC2. **`terraform destroy` sterge EC2 si volumul cu metrici.** Bucket-ul S3 configurat in Terraform pastreaza state-ul Terraform, nu datele aplicatiei. Pentru a pastra datele dupa stergerea EC2 ar trebui un backup separat; configuratia actuala nu face acest lucru.
 
-Schimbarea de la vechiul bind mount la volumul numit nu copiază automat fișierul `metrics.json` existent. Copiază istoricul în volumul Docker înainte de primul deploy cu noua configurație, dacă trebuie păstrat.
+Schimbarea de la vechiul bind mount la volumul numit nu copiaza automat fisierul `metrics.json` existent. Copiaza istoricul in volumul Docker inainte de primul deploy cu noua configuratie, daca trebuie pastrat.
 
-Serverul citește și rescrie întregul fișier JSON la fiecare POST. Implementarea este potrivită pentru dimensiunea proiectului, dar volumul de lucru crește cu numărul de agenți și eșantioane. Nu se folosește SQL.
+Serverul citeste si rescrie intregul fisier JSON la fiecare POST. Implementarea este potrivita pentru dimensiunea proiectului, dar volumul de lucru creste cu numarul de agenti si esantioane. Nu se foloseste SQL.
 
-## Limite și securitate
+## Limite si securitate
 
-Configurația curentă este potrivită pentru o demonstrație de curs:
+Configuratia curenta este potrivita pentru o demonstratie de curs:
 
-- Security group-ul permite momentan acces public pe porturile 22 și 5000, deoarece `default_cidr` este `0.0.0.0/0`. Portul 80 nu este configurat și aplicația nu îl folosește.
-- Jenkins a raportat IP-ul public de ieșire `188.26.8.196`. Acesta nu este încă configurat ca allowlist în clona curentă. Restrânge SSH la Jenkins și API-ul la IP-urile publice de ieșire ale agenților și ale utilizatorilor dashboard-ului.
-- Separă variabilele CIDR inbound de egress înainte să schimbi `default_cidr`: Terraform o folosește în prezent și pentru traficul outbound necesar descărcării pachetelor și imaginilor Docker.
+- Security group-ul permite momentan acces public pe porturile 22 si 5000, deoarece `default_cidr` este `0.0.0.0/0`. Portul 80 nu este configurat si aplicatia nu il foloseste.
+- Jenkins a raportat IP-ul public de iesire `188.26.8.196`. Acesta nu este inca configurat ca allowlist in clona curenta. Restrange SSH la Jenkins si API-ul la IP-urile publice de iesire ale agentilor si ale utilizatorilor dashboard-ului.
+- Separa variabilele CIDR inbound de egress inainte sa schimbi `default_cidr`: Terraform o foloseste in prezent si pentru traficul outbound necesar descarcarii pachetelor si imaginilor Docker.
 - API-ul nu are autentificare sau HTTPS.
-- `ansible/ansible.cfg` dezactivează verificarea cheilor host SSH, convenabilă pentru EC2 cu IP dinamic, dar fără verificarea identității hostului.
-- Flask pornește cu `debug=False` și `use_reloader=False`, dar folosește serverul integrat Flask. Pentru producție, folosește un server WSGI.
+- `ansible/ansible.cfg` dezactiveaza verificarea cheilor host SSH, convenabila pentru EC2 cu IP dinamic, dar fara verificarea identitatii hostului.
+- Flask porneste cu `debug=False` si `use_reloader=False`, dar foloseste serverul integrat Flask. Pentru productie, foloseste un server WSGI.
 
-`Jenkinsfile.destroy` rulează `terraform destroy -auto-approve`. Acesta elimină instanța EC2 și datele metricilor de pe volumul local. Rulează jobul doar când accepți această pierdere.
+`Jenkinsfile.destroy` ruleaza `terraform destroy -auto-approve`. Acesta elimina instanta EC2 si datele metricilor de pe volumul local. Ruleaza jobul doar cand accepti aceasta pierdere.
