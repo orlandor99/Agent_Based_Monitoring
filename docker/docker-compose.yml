@@ -5,4 +5,8 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ../server/data:/server/data
+      - monitoring-metrics:/server/data
+
+volumes:
+  monitoring-metrics:
+    name: monitoring-metrics

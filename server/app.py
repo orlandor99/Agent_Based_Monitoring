@@ -2,6 +2,7 @@
 import os
 import json
 from flask import Flask, request, jsonify, render_template
+from datetime import datetime, timedelta, timezone
 
 DATA_FILE = '/server/data/metrics.json'
 
@@ -11,7 +12,10 @@ app = Flask(__name__)
 def metrics():
     # Read the new metric object from the request body.
     new_metric = request.get_json()
-    
+
+    if not isinstance(new_metric, dict):
+        return jsonify({"error": "Metric must be a JSON object"}), 400
+
     # Load the existing metrics if the data file exists and is not empty.
     if os.path.exists(DATA_FILE) and os.path.getsize(DATA_FILE) > 0:
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
@@ -22,21 +26,49 @@ def metrics():
                 if not isinstance(saved_metrics, list):
                     saved_metrics = [saved_metrics]
             except json.JSONDecodeError:
-                # Start with an empty list if the file contains invalid JSON.
                 saved_metrics = []
     else:
-        # Start with an empty list when the file does not exist or is empty.
         saved_metrics = []
 
-    # Append the new sample to the stored metrics history.
+    # Use the server's receive time for retention, so agent clock differences
+    # do not affect which metrics expire.
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=7)
+    new_metric["received_at"] = now.isoformat()
     saved_metrics.append(new_metric)
-    print("Saved metrics updated:", saved_metrics)
 
-    # Save the complete metrics history back to the JSON file.
+    # Retain only metrics received within the last seven days.
+    retained_metrics = []
+    for metric in saved_metrics:
+        if not isinstance(metric, dict):
+            continue
+
+        received_at = metric.get("received_at")
+
+        # Give existing records without a receive time seven days from this update.
+        if not received_at:
+            received_at = now.isoformat()
+            metric["received_at"] = received_at
+
+        try:
+            received_at = datetime.fromisoformat(received_at)
+            if received_at.tzinfo is None:
+                received_at = received_at.replace(tzinfo=timezone.utc)
+        except (TypeError, ValueError):
+            continue
+
+        if received_at >= cutoff:
+            retained_metrics.append(metric)
+
+    # Save the retained metrics back to the JSON file.
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
-        json.dump(saved_metrics, f, indent=4)
+        json.dump(retained_metrics, f, indent=4)
 
-    # Confirm that the metrics were received.
+    app.logger.info(
+        "Metrics received from %s",
+        new_metric.get("hostname", "unknown")
+    )
+
     return jsonify({"message": "Metrics received"}), 201
 
 @app.route('/machines', methods=['GET'])
